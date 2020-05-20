@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:each="employee : ${employees}">
+    <p>Name: [[${employee.lastName}]], [[${employee.firstName}]]</p>
+    <p>ID: [[${employee.id}]]</p>
+</div>
+</body>
+</html>
