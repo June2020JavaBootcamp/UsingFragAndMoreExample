@@ -17,6 +17,7 @@ public class HomeController {
     @GetMapping("/add")
     public String index(Model model) {
         model.addAttribute("employee", new Employee());
+        model.addAttribute("employees", allEmployees);
         return "addEmployee";
     }
 
@@ -24,7 +25,9 @@ public class HomeController {
     public String listAll(@ModelAttribute Employee employee, Model model){
         allEmployees.add(employee);
         model.addAttribute("employees", allEmployees);
-        return "listAll";
+        model.addAttribute("employee", new Employee());
+        //return "listAll";
+        return "addEmployee";
     }
 
 }

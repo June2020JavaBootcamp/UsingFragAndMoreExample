@@ -12,5 +12,12 @@
     <div>Last Name: <input type="text" th:field="*{lastName}"/> <br/></div>
     <input type="submit" value="Submit">
 </form>
+<h2> Current Employees</h2>
+<div th:each="employee : ${employees}">
+    <p>Name: [[${employee.lastName}]], [[${employee.firstName}]]</p>
+    <p>ID: [[${employee.id}]]</p>
+</div>
+
+
 </body>
 </html>
