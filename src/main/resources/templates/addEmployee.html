@@ -2,22 +2,18 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>New</title>
+    <div th:replace="base :: headerfg"></div>
 </head>
 <body>
-<h1>New Employee Information</h1>
+<div th:replace="base :: navlinksfg"></div>
+<h1>[[${message}]]</h1>
 <form action="#" th:action="@{/listAll}" th:object="${employee}" method="post">
     <div>Employee ID: <input type="text" th:field="*{id}"/> <br/></div>
     <div>First Name: <input type="text" th:field="*{firstName}"/> <br/></div>
     <div>Last Name: <input type="text" th:field="*{lastName}"/> <br/></div>
     <input type="submit" value="Submit">
 </form>
-<h2> Current Employees</h2>
-<div th:each="employee : ${employees}">
-    <p>Name: [[${employee.lastName}]], [[${employee.firstName}]]</p>
-    <p>ID: [[${employee.id}]]</p>
-</div>
-
-
+<div th:replace="base :: footerfg"></div>
 </body>
 </html>

@@ -2,12 +2,33 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>List All</title>
+    <div th:replace="base :: headerfg"></div>
 </head>
 <body>
-<div th:each="employee : ${employees}">
-    <p>Name: [[${employee.lastName}]], [[${employee.firstName}]]</p>
-    <p>ID: [[${employee.id}]]</p>
-</div>
+<div th:replace="base :: navlinksfg"></div>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="employee : ${employees}">
+        <td>[[${employee.id}]]</td>
+        <td>[[${employee.firstName}]]</td>
+        <td>[[${employee.lastName}]]</td>
+        <td>
+            <button><a th:href="@{/update/{id} (id = ${employee.id})}">Update</a></button>
+            <button><a th:href="@{/detail/{id} (id = ${employee.id})}">Detail</a></button>
+            <button><a th:href="@{/delete/{id} (id = ${employee.id})}">Delete</a></button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div th:replace="base :: footerfg"></div>
 </body>
 </html>
